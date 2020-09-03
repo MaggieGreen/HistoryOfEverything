@@ -189,7 +189,7 @@ class _SectionState extends State<MenuSection>
                                               Container(
                                                   alignment: Alignment.center,
                                                   child: Image.asset(
-                                                      "assets/right_arrow.png",
+                                                      "assets/heart_icon.png",
                                                       color: widget.accentColor,
                                                       height: 22.0,
                                                       width: 22.0))
