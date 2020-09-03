@@ -118,32 +118,32 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
       if (success) setState(() {}); // Load the menu.
     });
 
-    _searchTextController.addListener(() {
-      updateSearch();
-    });
+    // _searchTextController.addListener(() {
+    //   updateSearch();
+    // });
 
-    _searchFocusNode.addListener(() {
-      setState(() {
-        _isSearching = _searchFocusNode.hasFocus;
-        updateSearch();
-      });
-    });
+    // _searchFocusNode.addListener(() {
+    //   setState(() {
+    //     _isSearching = _searchFocusNode.hasFocus;
+    //     updateSearch();
+    //   });
+    // });
   }
 
   /// A [WillPopScope] widget wraps the menu, so that before dismissing the whole app,
   /// search will be popped first. Otherwise the app will proceed as usual.
   Future<bool> _popSearch() {
-    if (_isSearching) {
-      setState(() {
-        _searchFocusNode.unfocus();
-        _searchTextController.clear();
-        _isSearching = false;
-      });
-      return Future(() => false);
-    } else {
-      Navigator.of(context).pop(true);
-      return Future(() => true);
-    }
+    // if (_isSearching) {
+    //   setState(() {
+    //     _searchFocusNode.unfocus();
+    //     _searchTextController.clear();
+    //     _isSearching = false;
+    //   });
+    //   return Future(() => false);
+    // } else {
+    //   Navigator.of(context).pop(true);
+    //   return Future(() => true);
+    // }
   }
 
   void _tapSearchResult(TimelineEntry entry) {
@@ -180,90 +180,90 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                   _isSectionActive,
                   assetId: section.assetId,
                 )))
-            .toList(growable: false))
-        ..add(Container(
-          margin: EdgeInsets.only(top: 40.0, bottom: 22),
-          height: 1.0,
-          color: const Color.fromRGBO(151, 151, 151, 0.29),
-        ))
-        ..add(FlatButton(
-            onPressed: () {
-              _pauseSection();
-              Navigator.of(context)
-                  .push(MaterialPageRoute(
-                      builder: (BuildContext context) => FavoritesPage()))
-                  .then(_restoreSection);
-            },
-            color: Colors.transparent,
-            child:
-                Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              Container(
-                margin: EdgeInsets.only(right: 15.5),
-                child: Image.asset("assets/heart_icon.png",
-                    height: 20.0,
-                    width: 20.0,
-                    color: Colors.black.withOpacity(0.65)),
-              ),
-              Text(
-                "Your Favorites",
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: "RobotoMedium",
-                    color: Colors.black.withOpacity(0.65)),
-              )
-            ])))
-        ..add(FlatButton(
-            onPressed: () => Share.share("Check out The History of Everything! " +
-                (Platform.isAndroid
-                    ? "https://play.google.com/store/apps/details?id=com.twodimensions.timeline"
-                    : "itms://itunes.apple.com/us/app/apple-store/id1441257460?mt=8")),
-            color: Colors.transparent,
-            child:
-                Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              Container(
-                margin: EdgeInsets.only(right: 15.5),
-                child: Image.asset("assets/share_icon.png",
-                    height: 20.0,
-                    width: 20.0,
-                    color: Colors.black.withOpacity(0.65)),
-              ),
-              Text(
-                "Share",
-                style: TextStyle(
-                    fontSize: 20.0,
-                    fontFamily: "RobotoMedium",
-                    color: Colors.black.withOpacity(0.65)),
-              )
-            ])))
-        ..add(Padding(
-          padding: const EdgeInsets.only(bottom: 30.0),
-          child: FlatButton(
-              onPressed: () {
-                _pauseSection();
-                Navigator.of(context)
-                    .push(MaterialPageRoute(
-                        builder: (BuildContext context) => AboutPage()))
-                    .then(_restoreSection);
-              },
-              color: Colors.transparent,
-              child:
-                  Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-                Container(
-                  margin: EdgeInsets.only(right: 15.5),
-                  child: Image.asset("assets/info_icon.png",
-                      height: 20.0,
-                      width: 20.0,
-                      color: Colors.black.withOpacity(0.65)),
-                ),
-                Text(
-                  "About",
-                  style: TextStyle(
-                      fontSize: 20.0,
-                      fontFamily: "RobotoMedium",
-                      color: Colors.black.withOpacity(0.65)),
-                )
-              ])),
-        ));
+            .toList(growable: false));
+      // ..add(Container(
+      //   margin: EdgeInsets.only(top: 20.0, bottom: 22),
+      //   height: 1.0,
+      //   color: const Color.fromRGBO(131, 131, 151, 0.29),
+      // ))
+      // ..add(FlatButton(
+      //     onPressed: () {
+      //       _pauseSection();
+      //       Navigator.of(context)
+      //           .push(MaterialPageRoute(
+      //               builder: (BuildContext context) => FavoritesPage()))
+      //           .then(_restoreSection);
+      //     },
+      //     color: Colors.transparent,
+      //     child:
+      //         Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      //       Container(
+      //         margin: EdgeInsets.only(right: 15.5),
+      //         child: Image.asset("assets/heart_icon.png",
+      //             height: 20.0,
+      //             width: 20.0,
+      //             color: Colors.black.withOpacity(0.65)),
+      //       ),
+      //       Text(
+      //         "Your Favorites",
+      //         style: TextStyle(
+      //             fontSize: 20.0,
+      //             fontFamily: "RobotoMedium",
+      //             color: Colors.black.withOpacity(0.65)),
+      //       )
+      //     ])))
+      // ..add(FlatButton(
+      //     onPressed: () => Share.share("Check out The History of Everything! " +
+      //         (Platform.isAndroid
+      //             ? "https://play.google.com/store/apps/details?id=com.twodimensions.timeline"
+      //             : "itms://itunes.apple.com/us/app/apple-store/id1441257460?mt=8")),
+      //     color: Colors.transparent,
+      //     child:
+      //         Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      //       Container(
+      //         margin: EdgeInsets.only(right: 15.5),
+      //         child: Image.asset("assets/share_icon.png",
+      //             height: 20.0,
+      //             width: 20.0,
+      //             color: Colors.black.withOpacity(0.65)),
+      //       ),
+      //       Text(
+      //         "Share",
+      //         style: TextStyle(
+      //             fontSize: 20.0,
+      //             fontFamily: "RobotoMedium",
+      //             color: Colors.black.withOpacity(0.65)),
+      //       )
+      //     ])))
+      // ..add(Padding(
+      //   padding: const EdgeInsets.only(bottom: 30.0),
+      //   child: FlatButton(
+      //       onPressed: () {
+      //         _pauseSection();
+      //         Navigator.of(context)
+      //             .push(MaterialPageRoute(
+      //                 builder: (BuildContext context) => AboutPage()))
+      //             .then(_restoreSection);
+      //       },
+      //       color: Colors.transparent,
+      //       child:
+      //           Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+      //         Container(
+      //           margin: EdgeInsets.only(right: 15.5),
+      //           child: Image.asset("assets/info_icon.png",
+      //               height: 20.0,
+      //               width: 20.0,
+      //               color: Colors.black.withOpacity(0.65)),
+      //         ),
+      //         Text(
+      //           "About",
+      //           style: TextStyle(
+      //               fontSize: 20.0,
+      //               fontFamily: "RobotoMedium",
+      //               color: Colors.black.withOpacity(0.65)),
+      //         )
+      //       ])),
+      // ));
     }
 
     /// Wrap the menu in a [WillPopScope] to properly handle a pop event while searching.
@@ -271,7 +271,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
     /// This will contain a [Column] with a [Collapsible] header on top, and a [tail]
     /// that's built according with the state of this widget.
     return WillPopScope(
-      onWillPop: _popSearch,
+      // onWillPop: _popSearch,
       child: Container(
           color: background,
           child: Padding(
@@ -287,21 +287,21 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: <Widget>[
-                                    Padding(
-                                        padding: const EdgeInsets.only(
-                                            top: 20.0, bottom: 12.0),
-                                        child: Opacity(
-                                            opacity: 0.85,
-                                            child: Image.asset(
-                                                "assets/twoDimensions_logo.png",
-                                                height: 10.0))),
-                                    Text("The History of Everything",
-                                        textAlign: TextAlign.left,
-                                        style: TextStyle(
-                                            color: darkText.withOpacity(
-                                                darkText.opacity * 0.75),
-                                            fontSize: 34.0,
-                                            fontFamily: "RobotoMedium"))
+                                    // Padding(
+                                    //     padding: const EdgeInsets.only(
+                                    //         top: 20.0, bottom: 12.0),
+                                    //     child: Opacity(
+                                    //         opacity: 0.85,
+                                    //         child: Image.asset(
+                                    //             "assets/twoDimensions_logo.png",
+                                    //             height: 10.0))),
+                                    // Text("The History of Everything",
+                                    //     textAlign: TextAlign.left,
+                                    //     style: TextStyle(
+                                    //         color: darkText.withOpacity(
+                                    //             darkText.opacity * 0.75),
+                                    //         fontSize: 34.0,
+                                    //         fontFamily: "RobotoMedium"))
                                   ])),
                           Padding(
                               padding: EdgeInsets.only(top: 22.0),
